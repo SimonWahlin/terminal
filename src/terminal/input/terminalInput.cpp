@@ -389,10 +389,14 @@ bool TerminalInput::HandleKey(const IInputEvent* const pInEvent) const
             // needs to be to check if both Left Ctrl + Right Alt are
             // pressed...
             // ... and if they are both pressed, strip them out of the control key state.
-            if (keyEvent.IsAltGrPressed())
+            // if (keyEvent.IsAltGrPressed())
+            // {
+            //     keyEvent.DeactivateModifierKey(ModifierKeyState::LeftCtrl);
+            //     keyEvent.DeactivateModifierKey(ModifierKeyState::RightAlt);
+            // }
+            if (keyEvent.IsAltPressed() && keyEvent.IsCtrlPressed())
             {
-                keyEvent.DeactivateModifierKey(ModifierKeyState::LeftCtrl);
-                keyEvent.DeactivateModifierKey(ModifierKeyState::RightAlt);
+                return false;
             }
 
             if (keyEvent.IsAltPressed() &&
