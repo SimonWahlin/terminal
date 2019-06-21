@@ -1,4 +1,5 @@
-
+#Invoke-OpenConsoleBuild '/property:Platform=x64' '/property:Configuration=Release'
+#Invoke-OpenConsoleBuild '-target:Clean;Build' '-maxcpucount' '-property:Platform=x64' '-property:Configuration=Release' '-p:AppxBundlePlatforms="x64"' '-p:AppxPackageDir="C:\git\TerminalPackage"' '-p:AppxBundle=Always' '-p:UapAppxPackageBuildMode=StoreUpload'
 # The project's root directory.
 Set-Item -force -path "env:OpenConsoleRoot" -value "$PSScriptRoot\.."
 
